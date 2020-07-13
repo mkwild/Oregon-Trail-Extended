@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+    color: lime;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#disclaimer {
+    font-size: 8px;
+}
+
+#subtitle {
+    font-size: 10px;
+}
+
+button {
+    background-color: lime;
+    color: black;
+}
+
+#userinput {
+    display: flex;
+    height: 1.2em;
+    padding-right: 10px;
+}
+
+#travelerinfo {
+    margin: 5em auto;
+}
+
+#interaction {
+    display: flex;
+    height: 1.2em;
+    padding-right: 10px;
+}

@@ -19,6 +19,39 @@ class Traveler {
     }
 }
 
+class Dog {
+    constructor (name, breed) {
+        this.name = name
+        this.breed = breed
+        this.isGoodBoy = Boolean("of course")
+        this.sitting = false
+        this.fetchedObject = []
+    }
+    sit () {
+        this.sitting = true
+    }
+    fetch (object) {
+        this.sitting = false
+        if (this.fetchedObject.length > 0) {
+            this.fetchedObject.splice(0, this.fetchedObject.length)
+        }
+        this.fetchedObject.push(object)
+        return this.fetchedObject
+    }
+}
+
+class GuardDog extends Dog {
+    constructor (name, breed, attackWord) {
+        super(name, breed)
+        this.attackWord = attackWord
+    }
+    bark(command) {
+        if (command === this.attackWord) {
+            return ("bark")
+        }
+    }
+}
+
 class Wagon {
     constructor (capacity) {
         this.capacity = capacity
@@ -54,5 +87,39 @@ class Wagon {
             food += this.passengers[index].food
         }
         return food
+    }
+}
+
+class Doctor extends Traveler {
+    constructor (name) {
+        super(name)
+    }
+    heal(traveler) {
+        traveler.isHealthy = true
+    }
+}
+
+class Hunter extends Traveler {
+    constructor (name) {
+        super(name)
+        this.food = 2
+    }
+    hunt() {
+        this.food += 5
+    }
+    eat() {
+        if (this.food >= 2) {
+            this.food -= 2
+        }
+        else {
+            this.food = 0
+            this.isHealthy = false
+        }
+    }
+    giveFood(traveler, numOfFoodUnits) {
+        if (this.food >= numOfFoodUnits) {
+            this.food -= numOfFoodUnits
+            traveler.food += numOfFoodUnits
+        }
     }
 }
